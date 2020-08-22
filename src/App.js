@@ -1,14 +1,17 @@
 import React, { Fragment } from "react";
-import { hot } from 'react-hot-loader/root';
 
+import Toolbar from './components/UI/Toolbar'
+import Search from './containers/Search'
 
 function App() {
 
   return (
     <React.Fragment>
-      <h2>React App is now Working!!</h2>
+      <Toolbar />
+      <Search />
+      
     </React.Fragment>
   )
 }
 
-export default hot(App);
+export default App;
