@@ -2,6 +2,8 @@ import React from 'react'
 
 function Toolbar(props) {
 
+    const hashToken = localStorage.getItem('hashToken')
+
     return (
         <div className="Toolbar">
             <div className="nav">
@@ -12,12 +14,17 @@ function Toolbar(props) {
                     </h2>
                 </a>
                 <ul className='navbar'>
-                    <li className="navbar-item">
-                        <a href="#">About</a>
-                    </li>
-                    <li className="navbar-item">
-                        <a href="#">Contact</a>
-                    </li>
+                    {
+                        !hashToken ? (
+                            <li className="navbar-item">
+                                <span onClick={props.onRefreshToken}>Get Token</span>
+                            </li>
+                        ) : (
+                            <li className="navbar-item">
+                                <span onClick={props.onClearToken}>Clear Token</span>
+                            </li>
+                        )
+                    }
                 </ul>
             </div>
         </div>
