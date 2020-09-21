@@ -7,7 +7,8 @@ const config = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[hash].js',
-    chunkFilename: 'js/[id].[chunkhash].js'
+    chunkFilename: 'js/[id].[chunkhash].js',
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -54,7 +55,8 @@ const config = {
   devServer: {
     contentBase: './dist',
     open: true,
-    port: 9191
+    port: 9191,
+    historyApiFallback: true
   },
   plugins: [
     new HtmlWebpackPlugin({
