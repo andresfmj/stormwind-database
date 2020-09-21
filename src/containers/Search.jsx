@@ -3,7 +3,7 @@ import React, { Component, useState, useEffect } from 'react'
 import Input from '../components/UI/Input'
 import Results from '../components/Results'
 
-import { axios } from '../helpers/util'
+import http from '../helpers/http'
 
 function Search(props) {
     const [query, setQuery] = useState('')
@@ -11,22 +11,28 @@ function Search(props) {
     const [loading, setLoading] = useState(false)
 
 
+    const getMediaAssets = async (id) => {
+        let media = await http.instance.request(`/media/item/${id}?namespace=static-us&locale=en_US`, 'GET')
+        if (media) {
+            return media.assets[0]
+        } else {
+            return null
+        }
+    }
+
+
     const clickedHandler = async () => {
         if (query != '' && query.length > 2) {
             let updatedItems = []
             setLoading(true)
             try {
-                const response = await axios.get(`/search/item?namespace=static-us&locale=en_US&name.en_US=${query}&orderby=id&_page=1`)
-                const data = response.data
-                console.log(data)
+                let data = await http.instance.request(`/search/item?namespace=static-us&locale=en_US&name.en_US=${query}&orderby=id&_page=1`, 'GET')
+                
                 if (data.results.length > 0) {
                     for (let i = 0; i < data.results.length; i++) {
                         let dataItem = data.results[i].data
                         
-                        let media = await axios.get(`https://us.api.blizzard.com/data/wow/media/item/${dataItem.id}?namespace=static-us&locale=en_US`)
-                        let data_media = null
-                        if (media.status === 200)
-                            data_media = media.data
+                        let media = await getMediaAssets(dataItem.id)
 
                         let item = {
                             id: dataItem.id,
@@ -43,7 +49,7 @@ function Search(props) {
                             quality: dataItem.quality.name['es_ES'],
                             required_level: dataItem.required_level,
                             sell_price: dataItem.sell_price,
-                            icon: data_media ? data_media.assets[0].value : null
+                            icon: media ? media.value : null
                         }
                         updatedItems.push(item)
                     }
