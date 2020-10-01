@@ -62,7 +62,9 @@ const config = {
     ]
   },
   plugins: [
-    new DotEnv(),
+    new DotEnv({
+      systemvars: true
+    }),
     new CopyPlugin({
       patterns: [{ from: 'src/index.html' }],
     }),
