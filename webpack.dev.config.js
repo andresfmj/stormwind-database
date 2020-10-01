@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const DotEnv = require('dotenv-webpack');
 
 const config = {
   entry: path.resolve(__dirname, 'src/index.js'),
@@ -59,6 +60,7 @@ const config = {
     historyApiFallback: true
   },
   plugins: [
+    new DotEnv(),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/index.html'),
       filename: 'index.html',
