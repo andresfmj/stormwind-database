@@ -16,3 +16,4 @@ ehthumbs.db
 Thumbs.db
 
 *-lock.json
+.env
