@@ -10,18 +10,18 @@ function Toolbar(props) {
                 <a href="#" className='title-header'>
                     <h2>
                         Stormwind
-                        <span className='legend-slogan text-small'>Your WoW Data at your pocket!</span>
+                        <span className='legend-slogan text-small'>Info-Wow!</span>
                     </h2>
                 </a>
                 <ul className='navbar'>
                     {
                         !hashToken ? (
                             <li className="navbar-item">
-                                <span onClick={props.onRefreshToken}>Get Token</span>
+                                <span onClick={props.onRefreshToken}>Obtener Token</span>
                             </li>
                         ) : (
                             <li className="navbar-item">
-                                <span onClick={props.onClearToken}>Clear Token</span>
+                                <span onClick={props.onClearToken}>Limpiar Token</span>
                             </li>
                         )
                     }
