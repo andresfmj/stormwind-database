@@ -2,6 +2,7 @@ import React, { Component, useState, useEffect } from 'react'
 
 import Input from '../components/UI/Input'
 import Results from '../components/Results'
+import Button from '../components/UI/Button'
 
 import http from '../helpers/http'
 
@@ -69,9 +70,9 @@ function Search(props) {
 
     return (
         <div className="content-box">
-            <h2>Search an Item you wish in-game</h2>
-            <Input inputType='text' placeholder='Find an Item...' changed={changedTextHandler} />
-            <button className='button btn-primary' onClick={clickedHandler} disabled={loading}>Find</button>
+            <h2>Busca un objeto que desees in-game!</h2>
+            <Input inputType='text' placeholder='Haz tu busqueda...' changed={changedTextHandler} />
+            <Button clicked={clickedHandler} loading={loading}>Buscar</Button>
             <Results items={items} loading={loading} />
         </div>
     )

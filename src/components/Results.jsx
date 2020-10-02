@@ -9,7 +9,7 @@ function Results(props) {
             props.loading 
                 ? (<div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>)
                 : 
-                props.items.length > 0 
+                props.items && props.items.length > 0 
                 ?
                 (
                     <ul className='card-container'>
@@ -31,7 +31,7 @@ function Results(props) {
                     ))}
                     </ul>
                 )
-                : <p>Not found any item</p>
+                : <p>No se encontró ningun objeto</p>
             }
         </div>
     )
