@@ -29,7 +29,7 @@ const config = {
         ]
       },
       {
-        test: /\.scss$/,
+        test: /\.styl$/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
@@ -38,7 +38,7 @@ const config = {
             }
           },
           'css-loader',
-          'sass-loader'
+          'stylus-loader'
         ]
       },
       {

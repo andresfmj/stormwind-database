@@ -1,0 +1,120 @@
+@import './_colors'
+
+body, html
+  color primary-text-color
+  background-color primary-color
+  margin 0
+  padding 0
+
+
+body
+  font-weight 40
+  font-family font-family
+  font-size font-size-default
+
+
+.container 
+  margin 0 auto
+  padding 0rem
+
+
+.text-center 
+  text-align center
+
+
+.text-small 
+  font-size font-small
+  color secondary-text-color
+
+
+a 
+  text-decoration none
+  color secondary-color
+
+
+// import toolbar
+@import './toolbar'
+
+.content-box 
+  margin 0 auto
+  width 90%
+
+
+.card-container 
+  list-style none
+  display grid
+  grid-template-columns .4fr .4fr .4fr .3fr
+  row-gap .8rem
+
+  .card 
+    position relative
+
+    display flex
+    align-items center
+    justify-content center
+    
+    width 185px
+    height 185px
+    border 1px solid #ccc
+    box-shadow 1px 0px 4px 0px #ffffffc9
+    background-color secondary-color
+
+    font-size font-huge + 5
+    padding .8rem
+
+    .quality 
+      position absolute
+      top 4px
+      right 8px
+    
+
+    .card-body 
+
+      h6 
+        margin .4rem
+        padding 0
+      
+
+      .items-attributes 
+        font-size font-small
+        list-style-type none
+        margin 0
+        padding 0
+
+
+.input 
+	background-color rgba(255, 255, 255, 0.1)
+	border 2px solid white
+	border-radius 1.2rem
+	color white
+	font-family 'Muli', sans-serif
+	font-size 16px
+	height 50px
+	margin 0px 10px 20px 0px
+	outline none
+	padding 0px 20px
+	width 80%
+
+
+::placeholder 
+	color white
+
+
+.button 
+  cursor pointer
+  border 1px solid primary-color
+  background-color transparent
+  padding .8rem
+  border-radius 1.2rem
+  width 90px
+  font-size font-huge
+
+
+.btn-primary 
+  background-color secondary-color
+  color secondary-text-color
+
+
+// import loader
+@import './loader'
+

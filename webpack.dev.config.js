@@ -26,11 +26,11 @@ const config = {
         ]
       },
       {
-        test: /\.scss$/,
+        test: /\.styl$/,
         use: [
           'style-loader',
           'css-loader',
-          'sass-loader'
+          'stylus-loader'
         ]
       },
       {
